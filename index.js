@@ -1,11 +1,27 @@
 'use strict';
 
+function getVal() {
+  const input = $('.js-input');
+  return input;
+}
 function getDogImage() {
-  fetch('https://dog.ceo/api/breeds/image/random/50')
+  const input = getVal();
+  fetch(`https://dog.ceo/api/breeds/image/random/${input}`)
     .then(response => response.json())
-    .then(responseJson => 
-      displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
+    .then((responseJson) => {
+      console.log(responseJson.message);
+      return showString(generateString(responseJson.message));
+    });
+}
+
+function generateString(message) {
+  let string = '';
+  message.forEach(item => string += `<li><img src = "${item}</img></li>`);
+  return string;
+}
+
+function showString(string) {
+  $('ul').html(string);
 }
 
 function displayResults(responseJson) {
@@ -19,8 +35,11 @@ function displayResults(responseJson) {
 }
 
 function watchForm() {
-  $('form').submit(event => {
+  $('.js-form').submit(event => {
     event.preventDefault();
+    // console.log($("#input-selection").val())
     getDogImage();
   });
 }
+
+$(watchForm);

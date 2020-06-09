@@ -12,13 +12,19 @@
         <main class="container">
             <h1>How Many dogs do you want?</h1>
     
-            <form>
-                <input type="number" id="input-selection" required>
+            <form class = "js-form">
+                <!-- make default value -->
+                <input type="number" id="input-selection" value = "3" class = "js-input">
               <input type="submit" value="Get a dog pic!">
             </form>
             <section class="results hidden">
               <h2>Look at this dog!</h2>
+              <div class = "dog-wrapper">
+                  <ul class = "image-list">
+
+                  </ul>
               <img class="results-img" alt="placeholder">
+              </div>
             </section>
         </main>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

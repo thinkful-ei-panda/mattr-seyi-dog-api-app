@@ -1,3 +1,27 @@
 body{
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+}
+
+#input-selection {
+    width: 70%;
+}
+
+
+@media only screen and (mix-width: 1000px) {
+    ul {
+        display: inline-block;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }

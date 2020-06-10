@@ -5,9 +5,12 @@ function getVal() {
   console.log(input);
   return input;
 }
+
 function getDogImage() {
   const input = getVal();
+  
   // https://dog.ceo/api/breeds/image/random/3
+
   fetch(`https://dog.ceo/api/breeds/image/random/${input}`)
     .then(response => response.json())
     .then((responseJson) => {
@@ -29,11 +32,10 @@ function showString(string) {
 
 function displayResults(responseJson) {
   console.log(responseJson.message);
-  //replace the existing image with the new one
   $('.results-img').replaceWith(
     `<img src="${responseJson.message}" class="results-img">`
   )
-  //display the results section
+  
   $('.results').removeClass('hidden');
 }
 
@@ -46,3 +48,4 @@ function watchForm() {
 }
 
 $(watchForm);
+$(getDogImage)

@@ -1,12 +1,11 @@
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
 }
 
-img{
-    width: 300px;
+img {
+    width: 100%;
+    flex: 1;
+    padding: 0;
 }
 
 h2 {
@@ -17,11 +16,36 @@ h2 {
     width: 70%;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
 
-@media only screen and (mix-width: 1000px) {
+li {
+    flex: 1;
+}
+
+
+@media only screen and (min-width: 1000px) {
     ul {
-        display: inline-block;
-        flex-direction: row;
-        justify-content: space-evenly;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
     }
+
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        
+    }
+
+    img {
+        width: 33.33%;
+    }
+
+
 }

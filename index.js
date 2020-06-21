@@ -6,17 +6,25 @@ function getVal() {
   return input;
 }
 
+function getBreedVal() {
+  const breedInput = $('.breed-input').val();
+  console.log(breedInput);
+  return breedInput;
+}
+
 function getDogImage() {
   const input = getVal();
+  const breedInput = getBreedVal();
   
   // https://dog.ceo/api/breeds/image/random/3
 
-  fetch(`https://dog.ceo/api/breeds/image/random/${input}`)
+  fetch(`https://dog.ceo/api/breed/${breedInput}/images/random/${input}`)
     .then(response => response.json())
     .then((responseJson) => {
       console.log(responseJson);
       return showString(generateString(responseJson.message));
-    });
+    })
+    .catch(error => alert('We do not have that breed, try another breed name'));
 }
 
 function generateString(message) {
